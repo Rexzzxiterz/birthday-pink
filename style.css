@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffeaf5;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.video-container {
+  width: 360px;
+  height: 640px;
+  background-color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.message {
+  font-size: 1.8em;
+  padding: 30px 20px;
+  color: #d63384;
+  font-weight: bold;
+  max-width: 90%;
+}
