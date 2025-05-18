@@ -1,79 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="birthday-song.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
   <canvas id="star-canvas"></canvas>
 
   <div class="container">
-    <h1>Selamat Ulang Tahun, Cinta!</h1>
-    <div class="heart">🥳</div>
-    <p class="message">
-      Semoga hari istimewamu ini penuh kebahagiaan, tawa, dan cinta. Aku bersyukur bisa menemanimu dan melihat senyummu setiap hari. Kamu adalah anugerah terindah yang pernah hadir dalam hidupku. Terima kasih sudah menjadi dirimu yang luar biasa. Aku mencintaimu, selamanya.
-    </p>
+    <h1>Happy birthday sayangggkuuu</h1>
+    <div class="heart">❤</div>
+    <div class="message">
+      <p>Semoga dengan bertambahnya usiamu, semakin sempurna pula imanmu.</p>
+      <p>Semangat terus buat kejar semua keinginan kamu.</p>
+      <p>Semangat terus aku selalu ada di samping kamu, selalu.</p>
+    </div>
+
+    <a href="video.html">
+      <button class="next-button">Ke Halaman Selanjutnya</button>
+    </a>
   </div>
-
-  <audio autoplay loop>
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    // Partikel bintang
-    const canvas = document.getElementById("star-canvas");
-    const ctx = canvas.getContext("2d");
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    function createStars() {
-      stars = [];
-      for (let i = 0; i < 100; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
-          speed: Math.random() * 1 + 0.5,
-        });
-      }
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ffcce6";
-      for (const star of stars) {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function updateStars() {
-      for (const star of stars) {
-        star.y += star.speed;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-      }
-    }
-
-    function animate() {
-      updateStars();
-      drawStars();
-      requestAnimationFrame(animate);
-    }
-
-    createStars();
-    animate();
-  </script>
 </body>
 </html>
