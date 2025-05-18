@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom, #ffd9ec, #ffeaf5);
-  overflow-x: hidden; /* biar bisa scroll vertikal */
+  overflow: hidden;
 }
 
 .container {
@@ -44,4 +44,21 @@ h1 {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.next-button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: #d63384;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #e85a9b;
 }
