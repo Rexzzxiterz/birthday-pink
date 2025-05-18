@@ -40,3 +40,27 @@ h1 {
     left: 0;
     z-index: -1;
 }
+.back-page {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 100;
+}
+
+.back-page button {
+  padding: 12px 28px;
+  font-size: 16px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.back-page button:hover {
+  background-color: #ff85c1;
+}
