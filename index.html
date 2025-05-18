@@ -1,64 +1,79 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sayang</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="birthday-song.mp3" type="audio/mp3">
-        Browser kamu tidak mendukung pemutar audio.
-    </audio>
+  <canvas id="star-canvas"></canvas>
 
-    <div class="container">
-        <h1>Happy birthday sayangggkuuu</h1>
-        <div class="heart">🥳</div>
-        <div class="message">
-            <p>Semoga dengan bertambahnya usiamu, semakin sempurna juga imanmu, rajin ibadahnya, selalu diberi kesehatan sama yang maha kuasa, panjang umur, selalu bahagia, berbakti terus sama orang tua, serta segala doa dan cita-cita yang kamu inginkan bisa terwujud dan dimudahkan dalam segala urusan. Aminnn.</p>
-            <p>Semangat terus buat kejar semua keinginan kamu. Kamu pasti bisa sayangg, jangan pernah takut gagal yaaa, aku selalu dukung kamu dan support kamu sayangg, jangan cape yaaa sayangg!</p>
-            <p>Semangat terus aku selalu ada di samping kamu, selalu rendah hati, jadi anak baik yaaa sayanggg, selalu sayangg sama keluarga, jangan lupa untuk selalu bersyukur yaaa sayang, semoga apapun yang kamu lakukan hari dan hari berikutnya selalu diberi kelancaran atau keselamatan. Amiiinnn.</p>
-        </div>
-    </div>
+  <div class="container">
+    <h1>Selamat Ulang Tahun, Cinta!</h1>
+    <div class="heart">🥳</div>
+    <p class="message">
+      Semoga hari istimewamu ini penuh kebahagiaan, tawa, dan cinta. Aku bersyukur bisa menemanimu dan melihat senyummu setiap hari. Kamu adalah anugerah terindah yang pernah hadir dalam hidupku. Terima kasih sudah menjadi dirimu yang luar biasa. Aku mencintaimu, selamanya.
+    </p>
+  </div>
 
-    <canvas id="star-canvas"></canvas>
-    <div class="back-page">
-  <a href="video.html">
-    <button>Ke Halaman Video</button>
-  </a>
-</div>
+  <audio autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
 
-    <script>
-        const canvas = document.getElementById('star-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  <script>
+    // Partikel bintang
+    const canvas = document.getElementById("star-canvas");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
 
-        const stars = Array.from({ length: 100 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2 + 1,
-            speed: Math.random() * 0.5 + 0.2
-        }));
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#fff';
-            stars.forEach(star => {
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                ctx.fill();
-                star.y -= star.speed;
-                if (star.y < 0) {
-                    star.y = canvas.height;
-                    star.x = Math.random() * canvas.width;
-                }
-            });
-            requestAnimationFrame(drawStars);
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < 100; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 2 + 1,
+          speed: Math.random() * 1 + 0.5,
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffcce6";
+      for (const star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function updateStars() {
+      for (const star of stars) {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
         }
+      }
+    }
 
-        drawStars();
-    </script>
+    function animate() {
+      updateStars();
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+
+    createStars();
+    animate();
+  </script>
 </body>
 </html>
