@@ -1,0 +1,89 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+  overflow-x: hidden;
+  color: #d63384;
+}
+.container {
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+.typing {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #ff69b4;
+  margin-bottom: 20px;
+  animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid pink;
+  width: 15ch;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 15ch }
+}
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: pink; }
+}
+.photo {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px pink;
+  margin: 20px 0;
+}
+.text {
+  font-size: 1.2em;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+.balloons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+.balloon {
+  width: 50px;
+  height: 70px;
+  border-radius: 50% 50% 50% 50%;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #999;
+}
+.pink { background: #ff99cc; }
+.white { background: #fff; }
+.gold { background: gold; }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+}
+.footer {
+  margin-top: 60px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #c2185b;
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
